@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import ResponsiveControl from '../common/Responsive.js'
 import SizingControl from '../common/Sizing.js'
-import { mergeDeep } from '../common/common'
 
 const { Component } = wp.element
 const { Button } = wp.components
@@ -39,8 +38,7 @@ class SpacingComponent extends Component {
       ...props.control.params.default
     } : baseDefault
 
-    const dbVal = props.control.setting.get()
-    const value = mergeDeep(this.defaultValue, dbVal)
+    const value = props.control.setting.get()
 
     this.state = {
       value,
